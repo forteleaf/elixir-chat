@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(ElixirChat.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(LiveviewChat.Repo, :manual)

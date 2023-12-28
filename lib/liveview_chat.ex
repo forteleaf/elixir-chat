@@ -1,6 +1,6 @@
-defmodule ElixirChat do
+defmodule LiveviewChat do
   @moduledoc """
-  ElixirChat keeps the contexts that define your domain
+  LiveviewChat keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

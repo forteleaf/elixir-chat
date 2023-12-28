@@ -1,4 +1,4 @@
-defmodule ElixirChatWeb.Telemetry do
+defmodule LiveviewChatWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -52,23 +52,23 @@ defmodule ElixirChatWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("elixir_chat.repo.query.total_time",
+      summary("liveview_chat.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("elixir_chat.repo.query.decode_time",
+      summary("liveview_chat.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("elixir_chat.repo.query.query_time",
+      summary("liveview_chat.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("elixir_chat.repo.query.queue_time",
+      summary("liveview_chat.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("elixir_chat.repo.query.idle_time",
+      summary("liveview_chat.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -86,7 +86,7 @@ defmodule ElixirChatWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {ElixirChatWeb, :count_users, []}
+      # {LiveviewChatWeb, :count_users, []}
     ]
   end
 end

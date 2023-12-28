@@ -1,4 +1,4 @@
-defmodule ElixirChatWeb.ConnCase do
+defmodule LiveviewChatWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule ElixirChatWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use ElixirChatWeb.ConnCase, async: true`, although
+  by setting `use LiveviewChatWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -20,19 +20,19 @@ defmodule ElixirChatWeb.ConnCase do
   using do
     quote do
       # The default endpoint for testing
-      @endpoint ElixirChatWeb.Endpoint
+      @endpoint LiveviewChatWeb.Endpoint
 
-      use ElixirChatWeb, :verified_routes
+      use LiveviewChatWeb, :verified_routes
 
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import ElixirChatWeb.ConnCase
+      import LiveviewChatWeb.ConnCase
     end
   end
 
   setup tags do
-    ElixirChat.DataCase.setup_sandbox(tags)
+    LiveviewChat.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

@@ -1,5 +1,5 @@
-defmodule ElixirChatWeb.PageController do
-  use ElixirChatWeb, :controller
+defmodule LiveviewChatWeb.PageController do
+  use LiveviewChatWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

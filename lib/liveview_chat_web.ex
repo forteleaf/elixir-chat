@@ -1,12 +1,12 @@
-defmodule ElixirChatWeb do
+defmodule LiveviewChatWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use ElixirChatWeb, :controller
-      use ElixirChatWeb, :html
+      use LiveviewChatWeb, :controller
+      use LiveviewChatWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule ElixirChatWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: ElixirChatWeb.Layouts]
+        layouts: [html: LiveviewChatWeb.Layouts]
 
       import Plug.Conn
-      import ElixirChatWeb.Gettext
+      import LiveviewChatWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule ElixirChatWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {ElixirChatWeb.Layouts, :app}
+        layout: {LiveviewChatWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule ElixirChatWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import ElixirChatWeb.CoreComponents
-      import ElixirChatWeb.Gettext
+      import LiveviewChatWeb.CoreComponents
+      import LiveviewChatWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule ElixirChatWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: ElixirChatWeb.Endpoint,
-        router: ElixirChatWeb.Router,
-        statics: ElixirChatWeb.static_paths()
+        endpoint: LiveviewChatWeb.Endpoint,
+        router: LiveviewChatWeb.Router,
+        statics: LiveviewChatWeb.static_paths()
     end
   end
 

@@ -7,29 +7,20 @@
 # General application configuration
 import Config
 
-config :elixir_chat,
-  ecto_repos: [ElixirChat.Repo],
+config :liveview_chat,
+  ecto_repos: [LiveviewChat.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :elixir_chat, ElixirChatWeb.Endpoint,
+config :liveview_chat, LiveviewChatWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [html: ElixirChatWeb.ErrorHTML, json: ElixirChatWeb.ErrorJSON],
+    formats: [html: LiveviewChatWeb.ErrorHTML, json: LiveviewChatWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: ElixirChat.PubSub,
-  live_view: [signing_salt: "iMfsA6/6"]
-
-# Configures the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
-config :elixir_chat, ElixirChat.Mailer, adapter: Swoosh.Adapters.Local
+  pubsub_server: LiveviewChat.PubSub,
+  live_view: [signing_salt: "KQ4GgRUr"]
 
 # Configure esbuild (the version is required)
 config :esbuild,

@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :elixir_chat, ElixirChat.Repo,
+config :liveview_chat, LiveviewChat.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "elixir_chat_dev",
+  database: "liveview_chat_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -16,14 +16,14 @@ config :elixir_chat, ElixirChat.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :elixir_chat, ElixirChatWeb.Endpoint,
+config :liveview_chat, LiveviewChatWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "F3f3VdkFHThT/MqCPkB30Dr+NL833seTSmMqnk2WvCjqGEjlvnV9tuD/t5V5fbAj",
+  secret_key_base: "vpg61np4nUfYdkrHP3/wuvQd5TYMnmg+tv3QfLu0kXm6mhMnlekzKp2CCCQN3ZBm",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
@@ -53,17 +53,17 @@ config :elixir_chat, ElixirChatWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :elixir_chat, ElixirChatWeb.Endpoint,
+config :liveview_chat, LiveviewChatWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/elixir_chat_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/liveview_chat_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :elixir_chat, dev_routes: true
+config :liveview_chat, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
@@ -77,6 +77,3 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Include HEEx debug annotations as HTML comments in rendered markup
 config :phoenix_live_view, :debug_heex_annotations, true
-
-# Disable swoosh api client as it is only required for production adapters.
-config :swoosh, :api_client, false

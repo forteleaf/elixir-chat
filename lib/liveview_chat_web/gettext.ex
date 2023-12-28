@@ -1,11 +1,11 @@
-defmodule ElixirChatWeb.Gettext do
+defmodule LiveviewChatWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import ElixirChatWeb.Gettext
+      import LiveviewChatWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule ElixirChatWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :elixir_chat
+  use Gettext, otp_app: :liveview_chat
 end

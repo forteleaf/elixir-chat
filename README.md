@@ -1,4 +1,4 @@
-# ElixirChat
+# LiveviewChat
 
 To start your Phoenix server:
 

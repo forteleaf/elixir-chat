@@ -1,13 +1,13 @@
-defmodule ElixirChatWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :elixir_chat
+defmodule LiveviewChatWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :liveview_chat
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_elixir_chat_key",
-    signing_salt: "PTCFipVB",
+    key: "_liveview_chat_key",
+    signing_salt: "+AjKEoI4",
     same_site: "Lax"
   ]
 
@@ -19,9 +19,9 @@ defmodule ElixirChatWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :elixir_chat,
+    from: :liveview_chat,
     gzip: false,
-    only: ElixirChatWeb.static_paths()
+    only: LiveviewChatWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -29,12 +29,8 @@ defmodule ElixirChatWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :elixir_chat
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :liveview_chat
   end
-
-  plug Phoenix.LiveDashboard.RequestLogger,
-    param_key: "request_logger",
-    cookie_key: "request_logger"
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
@@ -47,5 +43,5 @@ defmodule ElixirChatWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug ElixirChatWeb.Router
+  plug LiveviewChatWeb.Router
 end
